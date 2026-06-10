@@ -1385,7 +1385,7 @@ Hover over each zone for full details.
             zoom=4.8, center={"lat": 9.0, "lon": 8.0},
             mapbox_style="carto-positron",
             template="plotly_white",
-            title=f"Nigeria Zone Map - {selected_metric}"
+            title=f"Nigeria Zone Map - {selected_metric}."
         )
         fig.update_layout(height=520, margin=dict(l=0, r=0, t=40, b=0),
                           coloraxis_colorbar=dict(title=selected_metric[:25]))
@@ -1395,7 +1395,9 @@ Hover over each zone for full details.
         display_df = map_df[["Zone", "N firms", metric_col,
                               "Credit uptake (%)", "Has credit (%)", "Approval rate (%)"]].copy()
         display_df = display_df.rename(columns={metric_col: selected_metric})
+        
         st.markdown("**Zone summary - selected metric**")
+        display_df = display_df.loc[:, ~display_df.columns.duplicated()]
         st.dataframe(
             display_df.sort_values(selected_metric, ascending=False),
             use_container_width=True, hide_index=True
