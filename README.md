@@ -1,4 +1,4 @@
-# SME Credit Research — Streamlit Web App
+# SMEs Credit Research - Streamlit Web App
 ## World Bank Enterprise Survey Nigeria 2025
 
 ### Quick start
